@@ -1,0 +1,382 @@
+:root {
+  color-scheme: dark;
+  --bg: #09131a;
+  --bg-elevated: rgba(14, 26, 35, 0.88);
+  --panel: rgba(11, 21, 30, 0.72);
+  --panel-strong: rgba(7, 17, 24, 0.9);
+  --line: rgba(152, 188, 201, 0.18);
+  --text: #edf6f7;
+  --muted: #9bb2bb;
+  --accent: #3db8a6;
+  --accent-strong: #ff9a5a;
+  --danger: #ff7d7d;
+  --shadow: 0 20px 60px rgba(0, 0, 0, 0.32);
+  font-family: "Segoe UI", "IBM Plex Sans", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(61, 184, 166, 0.16), transparent 28%),
+    radial-gradient(circle at top right, rgba(255, 154, 90, 0.14), transparent 26%),
+    linear-gradient(180deg, #0a161e 0%, #081118 100%);
+  color: var(--text);
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+.screen-center,
+.login-screen {
+  min-height: 100vh;
+}
+
+.screen-center {
+  display: grid;
+  place-items: center;
+}
+
+.login-screen {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 2rem;
+  align-items: center;
+  padding: 3rem;
+}
+
+.brand-panel h1,
+.topbar h1,
+.panel-header h2,
+.login-card h2 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  letter-spacing: 0.02em;
+}
+
+.brand-panel h1 {
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  line-height: 0.95;
+  max-width: 10ch;
+}
+
+.lead {
+  max-width: 48ch;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+.eyebrow {
+  margin: 0 0 0.5rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.75rem;
+}
+
+.card {
+  background: var(--bg-elevated);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(18px);
+}
+
+.login-card {
+  padding: 2rem;
+  max-width: 520px;
+  width: 100%;
+  justify-self: end;
+}
+
+.form-stack {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.input {
+  width: 100%;
+  padding: 0.95rem 1rem;
+  border-radius: 16px;
+  border: 1px solid rgba(184, 214, 223, 0.14);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text);
+}
+
+.input:focus {
+  outline: 2px solid rgba(61, 184, 166, 0.35);
+  border-color: rgba(61, 184, 166, 0.5);
+}
+
+.button,
+.text-button {
+  border: 0;
+  cursor: pointer;
+}
+
+.button {
+  padding: 0.9rem 1.15rem;
+  border-radius: 999px;
+  font-weight: 700;
+}
+
+.button.primary {
+  background: linear-gradient(135deg, var(--accent), #2f96d1);
+  color: #041116;
+}
+
+.button.secondary {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text);
+}
+
+.text-button {
+  color: var(--accent-strong);
+  background: transparent;
+  padding: 0;
+}
+
+.alert {
+  margin-bottom: 1rem;
+  padding: 0.85rem 1rem;
+  border-radius: 14px;
+}
+
+.alert.error {
+  background: rgba(255, 125, 125, 0.14);
+  border: 1px solid rgba(255, 125, 125, 0.22);
+  color: #ffd3d3;
+}
+
+.dashboard-shell {
+  padding: 1.5rem;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.topbar-actions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  color: var(--muted);
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 300px minmax(0, 1fr) 320px;
+  gap: 1rem;
+  align-items: start;
+}
+
+.sidebar,
+.knowledge-panel,
+.chat-panel {
+  padding: 1rem;
+}
+
+.sidebar,
+.knowledge-panel {
+  position: sticky;
+  top: 1.5rem;
+}
+
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.field-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.session-list,
+.source-list {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.session-item,
+.source-card {
+  width: 100%;
+  text-align: left;
+  padding: 0.95rem;
+  border-radius: 18px;
+  border: 1px solid transparent;
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text);
+}
+
+.session-item {
+  cursor: pointer;
+}
+
+.session-item.active {
+  border-color: rgba(61, 184, 166, 0.4);
+  background: rgba(61, 184, 166, 0.08);
+}
+
+.session-item span,
+.source-card p,
+.source-card span,
+.empty-state {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin: 0.35rem 0 0;
+}
+
+.source-card {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.chat-panel {
+  min-height: 78vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+.messages {
+  display: grid;
+  gap: 1rem;
+  padding: 0.5rem 0;
+  overflow: auto;
+}
+
+.message-card {
+  padding: 1rem;
+  border-radius: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.message-card.user {
+  background: rgba(61, 184, 166, 0.08);
+}
+
+.message-card.assistant {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.message-meta {
+  margin-bottom: 0.75rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.message-body p,
+.message-body li {
+  line-height: 1.7;
+}
+
+.inline-code {
+  padding: 0.1rem 0.4rem;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.code-block {
+  position: relative;
+  margin: 1rem 0;
+}
+
+.code-block pre {
+  margin: 0;
+  overflow: auto;
+  padding: 1rem;
+  border-radius: 18px;
+  background: var(--panel-strong);
+  border: 1px solid var(--line);
+}
+
+.copy-button {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text);
+}
+
+.citation-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.citation-chip {
+  text-decoration: none;
+  color: var(--text);
+  padding: 0.35rem 0.65rem;
+  border-radius: 999px;
+  background: rgba(255, 154, 90, 0.12);
+  border: 1px solid rgba(255, 154, 90, 0.2);
+}
+
+.composer {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.composer-input {
+  resize: vertical;
+  min-height: 110px;
+}
+
+.empty-chat {
+  padding: 2rem 1rem;
+  border: 1px dashed var(--line);
+  border-radius: 20px;
+  text-align: center;
+}
+
+@media (max-width: 1180px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar,
+  .knowledge-panel {
+    position: static;
+  }
+}
+
+@media (max-width: 860px) {
+  .login-screen {
+    grid-template-columns: 1fr;
+    padding: 1.5rem;
+  }
+
+  .login-card {
+    justify-self: stretch;
+  }
+
+  .topbar {
+    flex-direction: column;
+    align-items: start;
+  }
+}
